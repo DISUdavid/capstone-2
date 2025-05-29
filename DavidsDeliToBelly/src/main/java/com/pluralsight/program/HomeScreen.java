@@ -23,6 +23,7 @@ public class HomeScreen {
                 break;
             } else {
                 throw new IndexOutOfBoundsException("Error, how did you even make a new number....are you ...the One? ");
+              // continue;
 
             }
 
