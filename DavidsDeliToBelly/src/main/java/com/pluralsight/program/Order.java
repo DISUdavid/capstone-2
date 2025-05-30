@@ -13,6 +13,12 @@ public class Order {
         drinks.add(drink);
     }
 
-
+    public double getTotalPrice() {
+        double total = 0;
+        for(Drink d: drinks) {
+            total += d.getPrice();
+        }
+        return total;
+    }
 
 }

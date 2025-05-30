@@ -10,30 +10,25 @@ import static com.pluralsight.Size.*;
 public class Topping implements Priceable {
     boolean moreMeat = false;
     boolean moreCheese = false;
-    //    Size steak;
-//    Size ham;
-//    Size salami;
-//    Size roastBeef;
-//    Size chicken;
-//    Size bacon;
-//    Size american;
-//    Size provolone;
-//    Size cheddar;
-//    Size swiss;
-//    String lettuce;
-//    String peppers;
-//    String onions;
-//    String tomatoes;
-//    String jalapenos;
-//    String cucumbers;
-//    String pickles;
-//    String guacamole;
-//    String mushrooms;
+    String lettuce = "lettuce";
+    String peppers = "peppers";
+    String onions = "onions";
+    String tomatoes = "tomatoes";
+    String jalapenos = "jalapenos";
+    String cucumbers = "cucumbers";
+    String pickles = "pickles";
+    String guacamole = "guacamole";
+    String mushrooms = "mushrooms";
     List<Topping> meats;
     List<Topping> cheese;
+    List<Topping> others;
     Scanner scanner = new Scanner(System.in);
     private String name;
     private Size size;
+
+    public Topping(String name) {
+        this.name = name;
+    }
 
     public Topping(String name, Size size) {
         this.name = name;
@@ -66,7 +61,7 @@ public class Topping implements Priceable {
     }
 
 
-    public void displayMeatToppings() {
+    public Topping displayMeatToppings() {
         List<Topping> meats = new ArrayList<>();
 
         meats.add(new Topping("Steak", SMALL));
@@ -97,14 +92,15 @@ public class Topping implements Priceable {
         if (choice >= 1 && choice <= meats.size()) {
             Topping selected = meats.get(choice - 1);
             System.out.println("You selected: " + selected.getName() + " (" + selected.getSize() + ")");
+            return selected;
+
         } else {
             System.out.println("Invalid choice. Please try again.");
         }
 
-//        // Set the moreMeat flag based on the response
-//        moreMeat = meatResponse.equals("yes");
 
 
+        return null;
     }
 
     public void displayCheeseTopping() {
@@ -135,7 +131,6 @@ public class Topping implements Priceable {
         } else {
             System.out.println("Invalid choice. Please try again.");
         }
-
 
     }
 
@@ -171,5 +166,32 @@ public class Topping implements Priceable {
         }
 
         return totalPrice;
+    }
+    public void displayOtherToppings(){
+        others = new ArrayList<>();
+
+        others.add(new Topping(jalapenos));
+        others.add(new Topping(lettuce));
+        others.add(new Topping(peppers));
+        others.add(new Topping(pickles));
+        others.add(new Topping(onions));
+        others.add(new Topping(guacamole));
+        others.add(new Topping(cucumbers));
+        others.add(new Topping(mushrooms));
+        others.add(new Topping(tomatoes));
+
+        System.out.println("Available Regular Toppings Options:");
+        for (int i = 0; i < others.size(); i++) {
+            System.out.println((i + 1) + ". " + others.get(i));
+        }
+        System.out.print("Please enter the number of the other topping you'd like to select: ");
+        int choice = scanner.nextInt();
+        if (choice >= 1 && choice <= others.size()) {
+            Topping selected = others.get(choice - 1);
+            System.out.println("You selected: " + selected.getName());
+        } else {
+            System.out.println("Invalid choice. Please try again.");
+        }
+
     }
 }

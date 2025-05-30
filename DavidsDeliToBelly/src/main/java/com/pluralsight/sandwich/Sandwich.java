@@ -115,11 +115,15 @@ public class Sandwich implements Priceable {
         System.out.println("4 - WRAP");
         int userInput = Integer.parseInt(scanner.nextLine());
         sandwich.setBreadType(userInput);
-        topping.priceBySize();
+        //topping.priceBySize();
 
         // ask user for meat choices
         System.out.println("What kind of protein would you like?: ");
-        topping.displayMeatToppings();
+       // topping.displayMeatToppings();
+        Topping selectedMeat = topping.displayMeatToppings();
+
+
+
 
         // extra?
         System.out.print("Would you like extra meat? (yes/no): ");
@@ -130,10 +134,12 @@ public class Sandwich implements Priceable {
         System.out.println("How about cheeses?: ");
         topping.displayCheeseTopping();
         // extra?
-        System.out.print("Would you like extra meat? (yes/no): ");
+        System.out.print("Would you like extra cheese? (yes/no): ");
         String cheeseResponse = scanner.nextLine().trim().toLowerCase();
 
         // ask user for toppings
+        System.out.println("What other toppings would you like? ");
+        topping.displayOtherToppings();
 
         // ask user for sauces
 
@@ -145,6 +151,7 @@ public class Sandwich implements Priceable {
 
 
     }
+
 
 
 }

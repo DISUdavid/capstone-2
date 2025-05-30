@@ -10,10 +10,11 @@ public class Main {
 
         HomeScreen homeScreen = new HomeScreen();
         homeScreen.display();
-//
+
 //        Order order = new Order();
 //
 //        Drink drink1 = new Drink(Size.LARGE,"Mountain Dew");
+//        drink1.getPrice();
 //        order.addDrink(drink1);
 
 
